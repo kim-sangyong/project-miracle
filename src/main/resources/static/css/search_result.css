@@ -1,0 +1,383 @@
+@charset "UTF-8";
+
+.noite {
+  background: -webkit-linear-gradient(top, rgb(0, 0, 0) 50%, rgb(25, 19, 39) 80%, rgb(43, 32, 72));
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1; 
+}
+
+html, body {
+  margin: 0;	
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative; /* 달 위치 조정 */
+  font-size: 10px;
+}
+
+.constelacao {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotate 600s linear infinite;
+  z-index: -1; 
+}
+
+.lua {
+  position: absolute;
+  right: 200px;
+  top: 150px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  background-color: #fff;
+  z-index: -1; /* 레이어 순서 조정 */
+  animation-name: colorChange;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-duration: 10s;
+}
+
+
+.lua .textura {
+  background-image: url(https://raw.githubusercontent.com/interaminense/starry-sky/master/src/img/bgMoon.png);
+  background-position: center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0.4;
+  z-index: -1; 
+}
+
+.floresta {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: -1; 
+}
+
+.floresta img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.search-results{
+	display: flex; 
+	justify-content: center;
+    z-index: 5; 
+    position: absolute;
+  	top: 43%; 
+  	left: 50%; 
+  	transform: translate(-50%, -50%); /* 중앙 정렬 */
+}
+
+.image-button{
+    background-size: contain; /* 이미지가 버튼 안에 비율을 유지하며 들어감 */
+    background-repeat: no-repeat; /* 이미지 반복 안함 */
+    background-position: center; /* 이미지를 중앙에 배치 */
+    border: none;
+    background-color: transparent; /* 버튼 배경 투명 설정 */
+    cursor: pointer;
+    animation: sunlight 3s ease-in-out infinite;
+	z-index: 5;
+}
+
+.swing-shake{
+	animation: swing-shake 0.3s ease-in-out infinite; /* 0.3초 움직ㅇ 움직임 */
+	animation-delay: 1.5s; /* 1.5초있다가 애니메이션 적용 */
+}
+
+.recipe{
+	text-align: center;
+	margin-top: 10%;
+	z-index: 10;
+	color: white; 
+}
+
+
+@keyframes sunlight {
+    0% {
+        filter: drop-shadow(0 0 50px rgba(255, 255, 0, 0.5));
+        opacity: 0.8; /* 불투명도 1=100% 0.8=80% */
+    }
+    50% {
+        filter: drop-shadow(0 0 50px rgba(255, 255, 0, 1));
+        opacity: 1;
+    }
+    100% {
+        filter: drop-shadow(0 0 50px rgba(255, 255, 0, 0.5));
+        opacity: 0.8;
+    }
+} 
+
+.image-button img {
+    width: 80%;
+    height: 80%;
+    object-fit: contain; /* 이미지 비율을 유지하면서 버튼 크기에 맞춤 */
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.center-jiger{
+	position: absolute;
+    top: 38%; 
+    left: 53%; 
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 이동 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.center-jiger img{
+	width: 50%;
+    height: 50%;
+    object-fit: contain;
+    z-index: 5;
+    animation: jiger-move 2.5s ease-in-out infinite;
+    
+}
+
+.center-water{
+    position: absolute;
+    top: 230px;
+    left: 43%;
+}
+
+.center-water img{
+	width: 20%;
+    height: 20%;
+    object-fit: contain;
+    z-index: 5;
+    filter: sepia(100%) saturate(6);
+    animation: water-drop 2.5s ease-in-out infinite;
+}
+
+@keyframes water-drop{
+	0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(30vh);
+  }
+}
+
+@keyframes jiger-move{
+	0% {
+	transform: rotate(0deg);
+	}
+	50% {transform: rotate(-55deg);
+	}
+}
+
+
+@keyframes swing-shake{
+	0% {transform: rotate(-13deg);}
+	50% {transform: rotate(13deg);}
+	100% {transform: rotate(-13deg);}
+}
+
+.search-results img {
+    max-width: 30%; 
+    max-height: 150px; 
+    height: auto; 
+    width: auto; 
+    margin: 10px 0; 
+}
+
+ strong{
+ font-size: 1.8rem;
+ }
+
+ p{
+ 	font-size: 1.6rem;
+	text-align: center; 
+	color: white;
+}
+
+/* 모바일 세로 (해상도 ~ 479px)*/ 
+@media all and (max-width:479px) {
+	p{
+	font-size: 1.6rem;
+	}
+	.recipe{
+		position: relative;
+		top: 22%;
+	}
+	.lua {
+   	 	right: 3%;
+    	top: 100px;
+   	 	width: 100px;
+    	height: 100px;
+  }
+
+   .floresta img {
+	 width: 100%;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 15vh;
+  }
+  .image-button img {
+    width: 60%;
+    height: 60%;
+    object-fit: contain; /* 이미지 비율을 유지하면서 버튼 크기에 맞춤 */
+}
+	.center-jiger img{
+	position: relative;
+	left: 73%;
+	width: 35%;
+    height: 35%;
+    object-fit: contain;	
+}
+
+	.center-water img{
+	width: 15%;
+    height: 15%;
+    object-fit: contain;
+	}
+}
+/* 모바일 가로 & 테블릿 세로 */ 
+@media all and (min-width:480px) and (max-width:767px) {
+	p{
+	font-size: 1.6rem;
+	}
+	.recipe{
+		position: relative;
+		top: 20%;
+	}
+	.lua {
+   	 	right: 3%;
+    	top: 100px;
+   	 	width: 100px;
+    	height: 100px;
+  }
+
+   .floresta img {
+	 width: 100%;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 15vh;
+  }
+  .image-button img {
+    width: 65%;
+    height: 65%;
+    object-fit: contain; /* 이미지 비율을 유지하면서 버튼 크기에 맞춤 */
+}
+	.center-jiger img{
+	position: relative;
+	left: 70%;
+	width: 35%;
+    height: 35%;
+    object-fit: contain;	
+}
+	.center-water img{
+	width: 15%;
+    height: 15%;
+    object-fit: contain;
+	}
+}
+/* 노트북 & PC */
+@media all and (min-width:1024px) and (max-width:1279px){
+	p{
+	font-size: 1.6rem;
+	}
+	.recipe{
+		position: relative;
+		top: 8%;
+	}
+	.lua {
+   	 	right: 3%;
+    	top: 150px;
+   	 	width: 120px;
+    	height: 120px;
+  }
+
+   .floresta img {
+	 width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .image-button img {
+    width: 75%;
+    height: 75%;
+    object-fit: contain; /* 이미지 비율을 유지하면서 버튼 크기에 맞춤 */
+}
+	.center-jiger img{
+	position: relative;
+	left: 60%;
+	width: 45%;
+    height: 45%;
+    object-fit: contain;	
+}
+	.center-water img{
+	width: 17%;
+    height: 17%;
+    object-fit: contain;
+	}
+}
+
+/* 테블릿 가로 & 테블릿 세로 */	
+@media all and (min-width:768px) and (max-width:1023px) {
+	p{
+	font-size: 1.6rem;
+	}
+	.recipe{
+		position: relative;
+		top: 13%;
+	}
+	.lua {
+   	 	right: 3%;
+    	top: 150px;
+   	 	width: 110px;
+    	height: 110px;
+  }
+
+   .floresta img {
+	  width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .image-button img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain; /* 이미지 비율을 유지하면서 버튼 크기에 맞춤 */
+}
+	.center-jiger img{
+	position: relative;
+	left: 60%;
+	width: 42%;
+    height: 42%;
+    object-fit: contain;	
+}
+	.center-water img{
+	width: 16%;
+    height: 16%;
+    object-fit: contain;
+	}
+}

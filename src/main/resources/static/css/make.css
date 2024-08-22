@@ -1,0 +1,489 @@
+@charset "UTF-8";
+
+* {
+    cursor: url('/resources/static/img/summerG.png') 2 2, auto;
+}
+
+.noite {
+  background: -webkit-linear-gradient(top, rgb(0, 0, 0) 50%, rgb(25, 19, 39) 80%, rgb(43, 32, 72));
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.lua {
+  position: absolute;
+  right: 200px;
+  top: 150px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  background-color: #fff;
+}
+
+.lua .textura {
+  background-image: url(https://raw.githubusercontent.com/interaminense/starry-sky/master/src/img/bgMoon.png);
+  background-position: center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+.floresta {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.floresta img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.next-move{
+	position: absolute;
+	right: 25%;
+}
+
+#next{
+	border-radius: 50%;
+	height: 70px;
+	width: 65px;
+	border: none;
+}
+
+
+#next img{
+	position: relative;
+	z-index: 1;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+
+}
+ 
+.back-move{
+	position: absolute;
+	left: 25%;
+}
+
+
+#back{
+	border-radius: 50%;
+	height: 70px;
+	width: 65px;
+	border: none;
+}
+
+#back img{
+	position: relative;
+	z-index: 1;
+	height: 50px;
+	width: 55px;
+	cursor: pointer;
+	transform: scaleX(-1); /* 부등호 좌우 바꾸기 */
+	right: 3px;
+}
+
+.mixing-move{
+	position: relative;
+	top: 275px;
+}
+
+.barSpoon-move{
+	position: relative;
+	bottom: 145px;
+	left: 39%;
+}
+
+.barSpoon-move img{
+	position: relative;
+	height: 340px;
+	width: auto;
+	animation: stirring 2s ease infinite;
+}
+
+@keyframes stirring{
+	0% {transform: rotate(-13deg);}
+	50% {transform: rotate(13deg);}
+	100% {transform: rotate(-13deg);}
+}
+
+
+.shake-explan{
+	position: relative;
+	left: 30%;
+	 
+}
+
+.spoon-explan{
+	position: relative;
+	bottom: 25px;
+}
+
+.shake-explan-re{
+	position: relative;
+	top: 80px;
+	right: 33px;  
+}
+
+.spoon-explan-re{
+	position: relative;
+	bottom: 60px;
+	left: 22px;
+}
+
+strong, p{
+	color: white;	
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+}
+
+.glass{
+	display: block;
+    position: relative;
+    left: 130%;
+    top: 80px;
+    width: 120px;
+    height: 140px;
+    border: 1px solid #000;
+    border-radius: 50px;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    box-shadow: 0 0 0 2px, 0 20px 35px rgba(0,0,0,1);
+    background-color: #ffff; opacity: 1;
+    overflow: hidden;
+}
+
+
+@keyframes fill-up {
+    0% {
+        background-size: 100% 0%; /* 배경이 처음에는 안보임 */
+    }
+    1% {
+        opacity: 1; /* 애니메이션 시작 시 보임 */
+    }
+    100% {
+        background-size: 100% 100%; /* 배경이 전체 영역을 채움 */
+    }
+}
+
+.water {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 60%;
+    background: linear-gradient(to top, #8B4513 0%, rgba(91, 51, 16, 0.8) 50%, transparent 100%);
+    filter: sepia(100%) saturate(6);
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 100% 0%;
+    animation: fill-up 5s ease-out forwards;
+    animation-delay: 3s;
+}
+
+.line{
+	position: relative;
+	left: 175%;
+	top: 81px;
+	width: 7px;
+	height: 130px;
+	box-shadow: 0 0 0 2px, 0 20px 35px rgba(0,0,0,1);
+    background-color: #ffff; opacity: 0.9;
+    border: 1px solid #000;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    display: block;
+    z-index: 1;
+}
+
+.circle{
+	width: 100%;
+	height: 40px;
+	box-shadow: 0 0 0 2px, 0 20px 35px rgba(0,0,0,1);
+    background-color: #ffff; opacity: 1;
+    border: 1px solid #000;
+    border-radius: 40%;
+    display: block;
+    position: relative;
+    left: 130%;
+    top: 70px;
+    border: 1px solid #000;
+    
+}
+
+
+#shaker-img{
+	animation: swing-shake 0.3s ease-in-out infinite;  
+	transform: rotate(45deg);
+	width: 70%;
+	height: auto;	
+}
+
+@keyframes swing-shake{
+	0% {transform: rotate(32deg);}
+	50% {transform: rotate(58deg);}
+	100% {transform: rotate(32deg);}
+}
+
+@keyframes shake-move{
+	0% { transform: rotate(45deg); }
+    50% { transform: rotate(45deg) rotateZ(70deg); }
+    100% { transform: rotate(45deg); }
+}
+
+/* 모바일 세로 (해상도 ~ 479px)*/ 
+@media all and (max-width:479px) {
+	.lua {
+	left: 7%;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+}
+  .floresta img {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 15vh;
+  }
+  .center-glass{
+  	position: relative;
+  	right: 12%;
+  	bottom: 3%;
+  }
+  .glass{
+  	width: 100px;
+    height: 110px;
+  }
+  #shaker-img{
+  	width: 40%;
+    height: 40%;
+    object-fit: contain;
+  }
+  #next{
+	height: 60px;
+	width: 55px;
+}
+  #next img{
+	height: 40px;
+	width: 40px;
+}
+  .next-move{
+  	right: 8%;
+  }
+   .back-move{
+    position: absolute;
+  	left: 5%;
+  }
+  #back{
+	height: 60px;
+	width: 55px;
+}
+  #back img{
+	height: 40px;
+	width: 40px;
+}
+ .mixing-move{
+  	left: 13%;
+  }
+  #mixing-img{
+  	width: 75%;
+    height: 75%;
+    object-fit: contain;
+  }
+  .shake-explan-re{
+  	right: 30%;
+  }
+}
+
+/* 모바일 가로 & 테블릿 세로 */ 
+@media all and (min-width:480px) and (max-width:767px) {
+	.lua {
+    left: 7%;
+    top: 50px;
+    width: 100px;
+    height: 100px;
+  }
+  
+  .floresta img {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 15vh;
+  }
+  .glass{
+  	width: 100px;
+    height: 110px;
+  }
+  .center-glass{
+  	position: relative;
+  	right: 14%;
+  }
+  
+  #shaker-img{
+  	width: 50%;
+    height: 50%;
+    object-fit: contain;
+  }
+  #mixing-img{
+  	width: 80%;
+    height: 80%;
+    object-fit: contain;
+  }
+  .mixing-move{
+  	left: 12%;
+  }
+  .spoon-explan{
+  	left: 6%;
+  }
+  
+  #next{
+	height: 60px;
+	width: 55px;
+}
+  #next img{
+	height: 40px;
+	width: 40px;
+}
+  .next-move{
+  	right: 9%;
+  }
+  .shake-explan-re{
+  	right: 30%;
+  }
+  .back-move{
+  	position: absolute;
+  	left: 8%;
+  }
+  #back{
+	height: 60px;
+	width: 55px;
+}
+  #back img{
+	height: 40px;
+	width: 40px;
+}
+
+}
+
+/* 노트북 & PC */
+@media all and (min-width:1024px) and (max-width:1279px){
+	.lua {
+    right: 1%;
+    top: 150px;
+    width: 120px;
+    height: 120px;
+  }
+
+   .floresta img {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .next-move{
+  	right: 15%;
+  }
+  #mixing-img{
+  	width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+  .mixing-move{
+  	left: 18%;
+  }
+  .barSpoon-move{
+	left: 55%;
+}
+  .spoon-explan{
+  	left: 6%;
+  }
+  .spoon-explan-re{
+  	left: 22%;
+  }
+}
+/* 테블릿 가로 & 테블릿 세로 */
+@media all and (min-width:768px) and (max-width:1023px) {
+	.lua {
+    right: 1%;
+    top: 150px;
+    width: 110px;
+    height: 110px;
+  }
+
+   .floresta img {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+   #shaker-img{
+  	width: 65%;
+    height: 65%;
+    object-fit: contain;
+  }
+  .glass{
+  	width: 110px;
+    height: 130px;
+  }
+  .center-glass{
+  	position: relative;
+  	right: 3%;
+  }
+  .next-move{
+  	right: 10%;
+  }
+  .shake-explan{
+  	left: 40%;
+  }
+  #mixing-img{
+  	width: 90%;
+    height: 90%;
+    object-fit: contain;
+  }
+  .mixing-move{
+  	left: 22%;
+  }
+  .barSpoon-move{
+	left: 55%;
+}
+  .spoon-explan{
+  	left: 2%;
+  }
+  .spoon-explan-re{
+  	left: 18%;
+  }
+}

@@ -1,0 +1,243 @@
+@charset "UTF-8";
+
+*{
+	cursor: url('/resources/static/img/spoon.png') 2 2, auto;
+}
+
+a:hover{
+	cursor: pointer;
+}
+
+.noite {
+  background: -webkit-linear-gradient(top, rgb(0, 0, 0) 50%, rgb(25, 19, 39)80%, rgb(43, 32, 72));
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1; /* 수정: 레이어 순서 조정 */
+}
+
+html, body {
+  margin: 0;	
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.constelacao {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  animation: rotate 600s infinite linear;
+  z-index: 1; /* 수정: 레이어 순서 조정 */
+}
+
+.lua {
+  position: absolute;
+  right: 200px;
+  top: 150px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  background-color: #fff;
+  z-index: 1; /* 수정: 레이어 순서 조정 */
+}
+
+.lua .textura {
+  background-image: url(https://raw.githubusercontent.com/interaminense/starry-sky/master/src/img/bgMoon.png);
+  background-position: center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0.4;
+  z-index: 1; /* 수정: 레이어 순서 조정 */
+}
+
+.floresta {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1; /* 수정: 레이어 순서 조정 */
+}
+
+.floresta img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+/* 부모 컨테이너 */
+  .container {
+    display: flex;
+    justify-content: center; /* 중앙 정렬 */
+    align-items: center;
+    gap: 20%; /* 각 아이템 간의 간격을 줌 */
+    padding: 20px;
+    text-align: center; /* 내부 텍스트를 가운데 정렬 */
+    position: relative;
+    top: 40%;
+  }
+
+.container > div {
+   display: flex;
+   flex-direction: column; /* 이미지를 위, a 태그를 아래에 배치 */
+   align-items: center;
+   justify-content: center;
+  }
+
+.container img {
+   display: block;
+   margin-bottom: 10px; 
+   max-width: 150px; 
+   position: relative;
+   z-index: 1;
+  }
+
+.container a {
+    display: inline-block;
+    text-decoration: none;
+    font-size: 16px;
+    color: white;
+    background-color: #333;
+    padding: 10px 20px;
+    border-radius: 5px;
+    margin-top: 30px; 
+    position: relative;
+    z-index: 1;
+    animation: a-move 2s ease infinite;
+  }
+
+@keyframes a-move{
+	0% {transform: rotate(-3deg);}
+	50% {transform: rotate(3deg);}
+	100% {transform: rotate(-3deg);}
+}
+
+@keyframes colorChange{
+	0%, 100% {
+    filter: brightness(100%) saturate(100%); /* 하얀색 */
+  }
+  50% {
+    filter: brightness(50%) saturate(150%) hue-rotate(20deg); /* 주황색 */
+  }
+}
+
+/* 모바일 세로 (해상도 ~ 479px)*/ 
+@media all and (max-width:479px) {
+  .lua {
+	right: 1%;
+    top: 150px;
+    width: 100px;
+    height: 100px;
+}
+
+  .floresta img {
+	width: 100%;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 15vh;
+  }
+  .container {
+    gap: 50px;
+    
+  }
+  .container img {
+    max-width: 100px; /* 이미지 크기 조정 */
+  }
+
+  .container a {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+  }
+
+
+/* 모바일 가로 & 테블릿 세로 */
+@media all and (min-width:480px) and (max-width:767px) {
+	.lua {
+	right: 1%;
+    top: 150px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .floresta img {
+	 width: 100%;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+     height: 15vh;
+  }
+  .container {
+    gap: 50px;
+    
+  }
+  .container img {
+    max-width: 125px; /* 이미지 크기 조정 */
+  }
+
+  .container a {
+    padding: 7px 15px;
+    font-size: 16px;
+  }
+}
+/* 노트북 & PC */
+@media all and (min-width:1024px) and (max-width:1279px){
+	.lua {
+    right: 1%;
+    top: 150px;
+    width: 120px;
+    height: 120px;
+  }
+   .floresta {
+      height: 50vh; /* 뷰포트 높이를 100%로 설정 */
+  }
+   .floresta img {
+	 width: 100%;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+  }
+}
+/* 테블릿 가로 & 테블릿 세로 */
+@media all and (min-width:768px) and (max-width:1023px) {
+	.lua {
+    right: 1%;
+    top: 150px;
+    width: 110px;
+    height: 110px;
+  }
+
+   .floresta img {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .container {
+    gap: 10%;
+    
+  }
+  .container img {
+    max-width: 140px; /* 이미지 크기 조정 */
+  }
+
+  .container a {
+    padding: 10px 20px;
+    font-size: 16px;
+  }
+}
+	
+	

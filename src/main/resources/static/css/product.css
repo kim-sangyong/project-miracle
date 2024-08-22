@@ -1,0 +1,442 @@
+@charset "UTF-8";
+*{
+	cursor: url('/resources/static/img/onTheLock.png') 2 2, auto;
+}
+
+.noite {
+  background: -webkit-linear-gradient(top, rgb(0, 0, 0) 50%, rgb(25, 19, 39) 80%, rgb(43, 32, 72));
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  overflow: hidden;
+  z-index: -1; /* 레이어 순서 조정 */
+}
+
+ 
+html, body {
+  margin: 0;	
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.lua {
+  position: absolute;
+  right: 200px;
+  top: 150px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  box-shadow: 0 0 160px 0px #fff, 0 0 30px -4px #fff, 0 0 8px 2px rgba(255, 255, 255, 0.26);
+  background-color: #fff;
+  z-index: -1; /* 레이어 순서 조정 */
+}
+
+.lua .textura {
+  background-image: url(https://raw.githubusercontent.com/interaminense/starry-sky/master/src/img/bgMoon.png);
+  background-position: center;
+  background-size: 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 50%;
+  overflow: hidden;
+  opacity: 0.4;
+}
+
+.floresta {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+.floresta img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.next-move{
+   position: absolute;
+   right: 28%;
+   bottom: 45%;
+}
+
+#next{
+	border-radius: 50%;
+	height: 70px;
+	width: 65px;
+	border: none;
+}
+
+
+#next img{
+	position: relative;
+	z-index: 1;
+	height: 50px;
+	width: 50px;
+	cursor: pointer;
+
+}
+ 
+.back-move{
+  position: absolute;
+  left: 28%;
+  bottom: 45%;
+}
+
+
+#back{
+	border-radius: 50%;
+	height: 70px;
+	width: 65px;
+	border: none;
+}
+
+#back img{
+	position: relative;
+	z-index: 1;
+	height: 50px;
+	width: 55px;
+	cursor: pointer;
+	transform: scaleX(-1); /* 부등호 좌우 바꾸기 */
+	right: 3px;
+}
+
+
+.book{
+	position: fixed;
+    bottom: 70%; 
+    left: 50%; 
+    transform: translate(-50%, -50%); /* 정확히 중앙으로 이동 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.book img{
+	width: 80%;
+    height: 80%;
+    object-fit: contain;				/* forwards= 애니메이션의 마지막 위치에 유지됨 */
+    animation: book-drop 2.5s ease-in-out forwards, book-bounce 2.5s ease-in-out 2.5s forwards;
+    cursor: pointer;
+}
+
+.book button {
+    border: none; /* 버튼의 기본 테두리 제거 */
+    background: none; /* 버튼의 기본 배경 제거 */
+    padding: 0; /* 버튼의 기본 패딩 제거 */
+}
+
+@keyframes book-drop{
+	0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(60vh);
+  }
+}
+
+@keyframes book-bounce {
+	0% {
+        transform: translateY(60vh); /* 처음 위치 */
+    }
+    30% {
+        transform: translateY(55vh); /* 위로 올라감 */
+    }
+    50% {
+        transform: translateY(60vh); /* 다시 원래 위치로 돌아옴 */
+    }
+    70% {
+        transform: translateY(55vh); /* 다시 위로 조금 올라감 */
+    }
+    100% {
+        transform: translateY(60vh); /* 원래 위치로 돌아옴 */
+    }
+}
+
+.slide {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+}
+
+.img {
+  width: 100%;
+  height: 252px; /* 고정된 높이 값 설정함 */
+}
+
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+
+.text {
+  margin-top: 30px;
+ 
+}
+
+.text p {
+  margin: 0;
+  color: white;
+}
+
+#epm {
+  color: white;
+  position: absolute;
+  top: 20%;
+  transform: translateX(-50%); /* 가운데 정렬하기 */
+}
+
+/* 모바일 세로 (해상도 ~ 479px)*/ 
+@media all and (max-width:479px) {
+  .lua {
+	right: 1%;
+    top: 150px;
+    width: 100px;
+    height: 100px;
+}
+
+  .floresta img {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 15vh;
+  }
+  .img img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+  .book img{
+	width: 110%;
+    height: 110%;
+    object-fit: contain;
+   
+}
+  .slide{
+  position: relative;
+  top: 5%;
+  }
+  .next-move{
+   right: 7%;
+   top: 45%;
+}
+  #next{
+	height: 60px;
+	width: 55px;
+}
+  .back-move{
+  	left: 7%;
+  	top: 45%;
+  }
+  #back{
+  	height: 60px;
+  	width: 55px;
+  }
+  #back img{
+  	right: 8px;
+  }
+  
+   @keyframes book-drop{
+	0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(45vh);
+  }
+}
+
+@keyframes book-bounce {
+	0% {
+        transform: translateY(45vh); /* 처음 위치 */
+    }
+    30% {
+        transform: translateY(40vh); /* 위로 올라감 */
+    }
+    50% {
+        transform: translateY(45vh); /* 다시 원래 위치로 돌아옴 */
+    }
+    70% {
+        transform: translateY(40vh); /* 다시 위로 조금 올라감 */
+    }
+    100% {
+        transform: translateY(45vh); /* 원래 위치로 돌아옴 */
+    }
+}
+}
+/* 모바일 가로 & 테블릿 세로 */
+@media all and (min-width:480px) and (max-width:767px) {
+	.lua {
+	right: 1%;
+    top: 150px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .floresta img {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    height: 15vh;
+  }
+  .img img {
+  width: 70%;
+  height: 70%;
+  object-fit: contain;
+}
+  .slide{
+  position: relative;
+  top: 5%;
+  }
+  .next-move{
+   right: 7%;
+   top: 45%;
+}
+  #next{
+	height: 60px;
+	width: 55px;
+}
+  .back-move{
+  	left: 7%;
+  	top: 45%; 
+  }
+  #back{
+  	height: 60px;
+  	width: 55px;
+  }
+  #back img{
+  	right: 8px;
+  }
+  @keyframes book-drop{
+	0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(50vh);
+  }
+}
+
+@keyframes book-bounce {
+	0% {
+        transform: translateY(50vh); /* 처음 위치 */
+    }
+    30% {
+        transform: translateY(45vh); /* 위로 올라감 */
+    }
+    50% {
+        transform: translateY(50vh); /* 다시 원래 위치로 돌아옴 */
+    }
+    70% {
+        transform: translateY(45vh); /* 다시 위로 조금 올라감 */
+    }
+    100% {
+        transform: translateY(50vh); /* 원래 위치로 돌아옴 */
+    }
+}
+}
+/* 노트북 & PC */
+@media all and (min-width:1024px) and (max-width:1279px){
+	.lua {
+    right: 1%;
+    top: 150px;
+    width: 120px;
+    height: 120px;
+  }
+
+   .floresta img {
+	width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+  .img img {
+	  width: 85%;
+	  height: 85%;
+	  object-fit: contain;
+}
+  .slide{
+	position: relative;
+	top: 5%;
+  }
+  .next-move{
+   right: 20%;
+   top: 45%;
+}
+  .back-move{
+  	left: 20%;
+  	top: 45%; 
+  }
+}
+/* 테블릿 가로 & 테블릿 세로 */
+@media all and (min-width:768px) and (max-width:1023px) {
+	.lua {
+    right: 1%;
+    top: 150px;
+    width: 110px;
+    height: 110px;
+  }
+
+   .floresta img {
+	 width: 100%;
+     position: absolute;
+     bottom: 0;
+     left: 0;
+  }
+  .img img {
+	  width: 75%;
+	  height: 75%;
+	  object-fit: contain;
+}
+  .slide{
+	  position: relative;
+	  top: 5%;
+  }
+  .next-move{
+   right: 20%;
+   top: 45%;
+}
+  .back-move{
+  	left: 20%;
+  	top: 45%; 
+  }
+ @keyframes book-drop{
+	0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(55vh);
+  }
+}
+
+@keyframes book-bounce {
+	0% {
+        transform: translateY(55vh); /* 처음 위치 */
+    }
+    30% {
+        transform: translateY(50vh); /* 위로 올라감 */
+    }
+    50% {
+        transform: translateY(55vh); /* 다시 원래 위치로 돌아옴 */
+    }
+    70% {
+        transform: translateY(50vh); /* 다시 위로 조금 올라감 */
+    }
+    100% {
+        transform: translateY(55vh); /* 원래 위치로 돌아옴 */
+    }
+}
+}
